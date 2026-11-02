@@ -1,0 +1,24 @@
+{
+    "atPoint" : [
+        {
+            "Player" : "Erling Haaland",
+            "AtPoint" : "56"
+        },
+        {
+            "Player" : "Desire Doue",
+            "AtPoint" : "43"
+        },
+        {
+            "Player" : "Rodri",
+            "AtPoint" : "13"
+        },
+        {
+            "Player" : "Declan Rice",
+            "AtPoint" : "11"
+        },
+        {
+            "Player" : "Virgil van Dijk",
+            "AtPoint" : "3"
+        }
+    ]
+}

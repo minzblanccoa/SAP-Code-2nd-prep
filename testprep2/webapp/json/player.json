@@ -1,0 +1,29 @@
+{
+    "fbPlayer" : [
+        {
+            "Name" : "Erling Haaland",
+            "Team" : "Manchester City",
+            "Position" : "ST"
+        },
+        {
+            "Name" : "Desire Doue",
+            "Team" : "Paris Saint Germain",
+            "Position" : "RW"
+        },
+        {
+            "Name" : "Rodri",
+            "Team" : "FC Barcelona",
+            "Position" : "CDM"
+        },
+        {
+            "Name" : "Declan Rice",
+            "Team" : "Arsenal",
+            "Position" : "CM"
+        },
+        {
+            "Name" : "Virgil van Dijk",
+            "Team" : "Liverpool",
+            "Position" : "CB"
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+<mvc:View controllerName="testprep2.testprep2.controller.Testprep2"
+    xmlns="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
+
+    <m:Page id="page" 
+            title="{i18n>title}"
+            showHeader="false"
+            enableScrolling="true"
+            class="sapUiContentPadding">
+
+        <Table  rows = "{/fbPlayer}"
+                selectionMode="None"
+                ariaLabelledBy = "title"
+                visibleRowCount = "5"
+                width = "50rem">
+        
+        <extension>
+            <m:OverflowToolbar style = "Clear">
+                <m:Title    id = "title" 
+                            text = "Player" />
+            </m:OverflowToolbar>
+        </extension>
+
+        <columns>
+        
+            <Column>
+                <m:Label text = "Player" />
+                <template>
+                    <m:Text text = "{Name}" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text = "Team" />
+                <template>
+                    <m:Text text = "{Team}" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text = "Position" />
+                <template>
+                    <m:Text text = "{Position}" />
+                </template>
+            </Column>
+
+        </columns>
+
+        </Table>
+
+        <viz:VizFrame   id = "idVizFrame"
+                        uiConfig = "{applicationSet:'fiori'}"
+                        vizType = "line"
+                        vizProperties="{ title: {text : 'Attack points by position', visible : true}}">
+
+            <viz:dataset>
+                <viz.data:FlattenedDataset data = "{attack>/atPoint}">
+
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition   name = "Player"
+                                                        value= "{attack>Player}" />
+                    </viz.data:dimensions>
+
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition name = "Attack Points"
+                                                    value = "{attack>AtPoint}" />
+                    </viz.data:measures>
+
+                </viz.data:FlattenedDataset>
+            </viz:dataset>
+
+            <viz:feeds>
+                <viz.feeds:FeedItem     id = 'valueAxisFeed'
+                                        uid = "valueAxis"
+                                        type = "Measure"
+                                        values = "Attack Points">
+                </viz.feeds:FeedItem>
+
+                <viz.feeds:FeedItem     id = 'categoryAxisFeed'
+                                        uid = "categoryAxis"
+                                        type = "Dimension"
+                                        values = "Player">
+                </viz.feeds:FeedItem>
+            </viz:feeds>
+        
+            <viz:dependents>
+                <viz:Popover id = "idPopOver">
+                </viz:Popover>
+            </viz:dependents>
+        
+        </viz:VizFrame>
+
+    </m:Page>
+
+</mvc:View>

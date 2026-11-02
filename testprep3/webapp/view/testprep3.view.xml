@@ -1,0 +1,42 @@
+<mvc:View controllerName="testprep3.testprep3.controller.testprep3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+
+    <Page   id = "page"
+            title = "{i18n>title}"
+            showHeader = "false"
+            enableScrolling = "true"
+            class = "sapUiContentPadding">
+
+        <Panel  headerText = "면적 계산기"
+                class = "sapUiSmallMarginBottom"
+                width = "20rem">
+            <VBox>
+                <HBox alignItems = "Center">
+                    <Text   text = "Horizon"
+                            textAlign ="Center" />
+                    <Input  id = "h1"
+                            width = "5rem" />
+                </HBox>
+                <HBox alignItems = "Center">
+                    <Text   text = "Vertical"
+                            textAlign ="Center" />
+                    <Input  id = "v1"
+                            width = "5rem" />
+                </HBox>
+                <HBox alignItems = "Center">
+                    <Text   text = "Area"
+                            textAlign ="Center" />
+                    <Input  id = "area"
+                            width = "5rem" />
+                </HBox>
+                <Button text = "Calcul"
+                        press = "onClick()" />
+            </VBox>
+        </Panel>
+
+    </Page>
+
+    
+</mvc:View>
