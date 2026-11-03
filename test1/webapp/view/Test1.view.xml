@@ -1,0 +1,96 @@
+<mvc:View controllerName="test1.test1.controller.Test1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page   id = "page"
+            title = "{i18n>title}"
+            showHeader = "false"
+            enableScrolling = "true"
+            class = "sapUiContentPadding">                                      <!-- 페이지의 헤더 내용과 스크롤 가능여부, class 설정하는 공간 -->
+
+        <Panel  headerText = "오전 1번 문제"
+                class = "sapUiSmallMarginBottom"
+                width="50rem">                                                  <!-- 패널을 설정하고 문제를 나타내는 헤더텍스트 설정, 문제를 구분하기 위한 공백을 만드는 class, 너비는 50rem -->
+
+            <VBox>                                                              <!-- 수직 박스 설정(이후 VBox 설명은 동일하기 때문에 생략하겠습니다) -->
+                <HBox alignItems = "Center">                                    <!-- 수평 박스 설정(이후 HBox 설명은 동일하기 때문에 생략하겠습니다) input 박스와 text가 동일선상에 위치하도록 alignItems Center로 사용 -->
+                    <Input  id = "inputFiori"
+                            submit = "onSubmit1"/>                              <!-- input 박스 id 설정, enter 누르면 onSubmit1 컨트롤러 함수 실행할 수 있는 submit -->
+                    <Text id = "vResult1" />                                    <!-- text id 설정 -->
+                </HBox>
+            </VBox>
+            <VBox>
+                <HBox alignItems = "Center">                                    <!-- input 박스와 text가 동일선상에 위치하도록 alignItems Center로 사용 -->
+                    <Input  id = "inputRTX"
+                            submit="onSubmit2"/>                                <!-- input 박스 id 설정, enter 누르면 onSubmit2 컨트롤러 함수 실행할 수 있는 submit 이벤트 설정 -->
+                    <Text id = "vResult2" />                                    <!-- text id 설정 -->
+                </HBox>
+            </VBox>
+
+        </Panel>
+
+
+        <Panel  headerText = "오전 2번 문제"
+                class = "sapUiSmallMarginBottom"
+                width="50rem">                                                  <!-- 패널을 설정하고 문제를 나타내는 헤더텍스트 설정, 문제를 구분하기 위한 공백을 만드는 class, 너비는 50rem -->
+
+            <HBox alignItems = "Center">
+                <Button text = "for" press = "forClick"
+                        class = "sapUiSmallMarginEnd" />
+                <Button text = "while" press = "whileClick"
+                        class = "sapUiSmallMarginEnd" />
+                <Button text = "for + while" press = "mixClick" />
+            
+            </HBox>
+
+
+        </Panel>
+
+
+        <Panel  headerText = "오전 3번 문제"
+                class = "sapUiSmallMarginBottom"
+                width="50rem">                                                  <!-- 패널을 설정하고 문제를 나타내는 헤더텍스트 설정, 문제를 구분하기 위한 공백을 만드는 class, 너비는 50rem -->
+
+            <HBox alignItems = "Center">                                        <!-- input 박스와 text가 동일선상에 위치하도록 alignItems Center로 사용 -->
+                <Input id = "gugu" width = "2rem" />                            <!-- input 박스 id를 gugu로 설정, 너비는 2rem -->
+                <Text text = "단" width = "2rem" />                             <!-- input 박스 옆에 "단"이라는 텍스트 설정, 너비는 2rem -->
+                <Button text = "Calcul"
+                        icon = "sap-icon://begin"
+                        type = "Success"
+                        press = "onCalcul" />                                   <!-- 버튼의 글자는 Calcul, icon과 type(색상)은 다음과 같으며, 버튼 누르면 onCalcul함수가 작동되도록 하는 press 이벤트 설정 -->
+            </HBox>
+
+        </Panel>
+
+
+        <Panel  headerText = "오전 4번 문제"
+                class = "sapUiSmallMarginBottom"
+                width="50rem">                                                  <!-- 패널을 설정하고 문제를 나타내는 헤더텍스트 설정, 문제를 구분하기 위한 공백을 만드는 class, 너비는 50rem -->
+
+            <HBox alignItems = "Center">                                        <!-- input 박스와 text가 동일선상에 위치하도록 alignItems Center로 사용 -->
+                <Button text = "Calcul"
+                        icon = "sap-icon://begin"
+                        type = "Success"
+                        press = "evenGugu" />                                   <!-- 버튼의 글자는 Calcul, icon과 type(색상)은 다음과 같으며, 버튼 누르면 evenGugu함수가 작동되도록 하는 press 이벤트 설정 -->
+            </HBox>
+
+        </Panel>
+
+
+        <Panel  headerText = "오전 5번 문제"
+                class = "sapUiSmallMarginBottom"
+                width="50rem">                                                  <!-- 패널을 설정하고 문제를 나타내는 헤더텍스트 설정, 문제를 구분하기 위한 공백을 만드는 class, 너비는 50rem -->
+            <HBox alignItems = "Center" >                                       <!-- input 박스와 text가 동일선상에 위치하도록 alignItems Center로 사용 -->
+                <Button     text = "Calcul"
+                            icon = "sap-icon://begin"
+                            type = "Success"
+                            press = "onMulti" />                                <!-- 버튼의 글자는 Calcul, icon과 type(색상)은 다음과 같으며, 버튼 누르면 onMulti함수가 작동되도록 하는 press 이벤트 설정 -->
+                <Label text = "값" />                                           <!-- label의 text는 "값"으로 설정 -->
+                <Text id = "XXXresult" />                                       <!-- 값이 출력될 text 공간의 id는 XXXresult로 설정 -->
+            </HBox>
+
+        </Panel>
+
+    </Page>
+
+</mvc:View>

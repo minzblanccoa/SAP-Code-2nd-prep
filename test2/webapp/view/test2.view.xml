@@ -1,0 +1,323 @@
+<mvc:View controllerName="test2.test2.controller.test2"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
+
+    <m:Page id = "page"
+        title = "{i18n>title}"
+        showHeader = "false"
+        enableScrolling = "true"
+        class = "sapUiContentPadding">
+
+        <!-- 제목과 문제 사이 공백, 너비를 지정 -->
+        <m:Panel    headerText = "오후 1번 문제"
+                    class = "sapUiSmallMarginBottom"
+                    width="20rem">
+            <!-- 버튼 id 설정, 버튼 텍스트는 Show, press하면 onClick 이벤트 실행 -->
+            <m:VBox alignItems = "Center">
+                <m:Button   id = "bsPlayer"
+                            text = "Show"
+                            press = "onClick" />
+            </m:VBox>
+
+        
+        </m:Panel>
+
+        <!-- Asset.json과 연결해주는 rows, visibleRowCount로 행 제한 -->
+        <t:Table    rows = "{/GridSet}"
+                    selectionMode="None"
+                    ariaLabelledBy = "title"
+                    visibleRowCount = "5"
+                    width = "50rem"
+                    class = "sapUiSmallMarginBottom">
+
+            <t:extension>
+                <m:OverflowToolbar style = "Clear">
+					<m:Title id = "title1" text = "오후 2번 문제"/>
+				</m:OverflowToolbar>
+            </t:extension>
+
+                    <t:columns>                                 <!-- 행 쓸 수 있도록 열기 -->
+                        <t:Column   width = "15rem"
+                                    hAlign="Right">             <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Bukrs"/>           <!-- 라벨 텍스트는 Bukrs로 -->
+                            <t:template>
+                                <m:Text text = "{Bukrs}"/>      <!-- 안에 들어갈 데이터를 json으로부터 Bukrs의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "15rem"
+                                    hAlign="Right">             <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Gjahr"/>           <!-- 라벨 텍스트는 Gjahr로 -->
+                            <t:template>
+                                <m:Text text = "{Gjahr}"/>      <!-- 안에 들어갈 데이터를 json으로부터 Gjahr의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "15rem"
+                                    hAlign="Left">              <!-- 글자 데이터 hAlign으로 왼쪽 정렬 -->
+                            <m:Label text = "Bktxt"/>           <!-- 라벨 텍스트는 Gjahr로 -->
+                            <t:template>
+                                <m:Text text = "{Bktxt}"/>      <!-- 안에 들어갈 데이터를 json으로부터 Bktxt의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "15rem"
+                                    hAlign="Right">             <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Anlnl"/>           <!-- 라벨 텍스트는 Gjahr로 -->
+                            <t:template>
+                                <m:Text text = "{Anlnl}"/>      <!-- 안에 들어갈 데이터를 json으로부터 Anlnl의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+        </t:Table>
+
+        <t:Table    rows = "{Companyson>/DataSet}"
+                    selectionMode="None"
+                    ariaLabelledBy = "title"
+                    visibleRowCount = "6"
+                    width = "50rem"
+                    class = "sapUiSmallMarginBottom">                            <!-- 여기서는 회사가 6종류니 visibleRowCount를 6으로 설정 -->
+
+            <t:extension>
+                <m:OverflowToolbar style = "Clear">
+					<m:Title id = "title2" text = "오후 3번 문제"/> <!-- title의 property -->
+				</m:OverflowToolbar>
+            </t:extension>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Right">                     <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Year"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Year}"/>    <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Year의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Left">                      <!-- 글자 데이터 hAlign으로 왼쪽 정렬 -->
+                            <m:Label text = "Comp"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Comp}"/>    <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Comp의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Left">                      <!-- 글자 데이터 hAlign으로 왼쪽 정렬 -->
+                            <m:Label text = "Asset"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Asset}"/>   <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Asset의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Left">                      <!-- 글자 데이터 hAlign으로 왼쪽 정렬 -->
+                            <m:Label text = "Gubun"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Gubun}"/>   <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Gubun의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Right">                     <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Total"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Total}"/>   <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Total의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Right">                     <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "List"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>List}"/>    <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 List의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Right">                     <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Rate"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Rate}"/>    <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Rate의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:columns>
+                        <t:Column   width = "10rem"
+                                    hAlign="Right">                     <!-- 숫자 데이터 hAlign으로 오른쪽 정렬 -->
+                            <m:Label text = "Increase"/>
+                            <t:template>
+                                <m:Text text = "{Companyson>Increase}"/>    <!-- 안에 들어갈 데이터를 json(별명: Companyson)으로부터 Increase의 값을 불러옴 -->
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+        </t:Table>
+
+        <m:HBox>
+            <!-- vizFrame의 id와 type 설정(여기서는 줄 그래프인 Line 선택). Viz Properties로 제목 설정, class로 그래프 사이 여백 생성 -->
+            <viz:VizFrame   id = "idVizFrame1"
+                            uiConfig="{applicationSet:'fiori'}"
+                            vizType="line"
+                            vizProperties="{ title: {text : '오후 4번 문제', visible : true} }"
+                            width="25rem"
+                            class = "sapUiSmallMarginEnd">
+
+                <viz:dataset>
+                        <!-- AsPoint: setModel에서 설정한 별명, /VizSet: json 경로 -->
+                        <viz.data:FlattenedDataset data = "{AsPoint>/VizSet}">
+
+                            <viz.data:dimensions>
+                                <!-- Dimension: 측정 방식, Player: 측정 방식 이름, value: json(별명 AsPoint)에 있는 Player의 값 -->
+                                <viz.data:DimensionDefinition name = "Player" value = "{AsPoint>Player}" />
+                            </viz.data:dimensions>
+
+                            <viz.data:measures>
+                                <!-- Measure: 측정 대상, Assist: 측정 대상 이름, value: json(별명 AsPoint)에 있는 Assist의 값 -->
+                                <viz.data:MeasureDefinition name = "Assist" value = "{AsPoint>Assist}" />
+                            </viz.data:measures>
+                        
+                        </viz.data:FlattenedDataset>               
+
+                </viz:dataset>
+
+                <viz:feeds>
+                    <!-- MeasureDefinition or DimensionDefinition 둘 다 axisfeed의 values와 이름이 일치해야 한다. -->
+                    <viz.feeds:FeedItem id = 'categoryAxisFeed1'
+                                        uid = "categoryAxis"
+                                        type = "Dimension"
+                                        values = "Player" />
+                    <!-- MeasureDefinition or DimensionDefinition 둘 다 axisfeed의 values와 이름이 일치해야 한다. -->
+                    <viz.feeds:FeedItem id = 'valueAxisFeed1'
+                                        uid = "valueAxis"
+                                        type = "Measure"
+                                        values = "Assist" />
+                </viz:feeds>
+
+            </viz:VizFrame>
+
+            <!-- vizFrame의 id와 type 설정(여기서는 막대형 그래프인 column 선택). Viz Properties로 제목 설정 -->
+            <viz:VizFrame   id = "idVizFrame2"
+                            uiConfig="{applicationSet:'fiori'}"
+                            vizType="column"
+                            vizProperties="{ title: {text : '오후 4번 문제', visible : true} }"
+                            width="25rem"
+                            class = "sapUiSmallMarginBottom">
+
+                <viz:dataset>
+                        <!-- AsPoint: setModel에서 설정한 별명, /VizSet: json 경로 -->
+                        <viz.data:FlattenedDataset data = "{AsPoint>/VizSet}">
+
+                            <viz.data:dimensions>
+                                <!-- Dimension: 측정 방식, Player: 측정 방식 이름, value: json(별명 AsPoint)에 있는 Player의 값 -->
+                                <viz.data:DimensionDefinition name = "Player" value = "{AsPoint>Player}" />
+                            </viz.data:dimensions>
+
+                            <viz.data:measures>
+                                <!-- Measure: 측정 대상, Assist: 측정 대상 이름, value: json(별명 AsPoint)에 있는 Assist의 값 -->
+                                <viz.data:MeasureDefinition name = "Assist" value = "{AsPoint>Assist}" />
+                            </viz.data:measures>
+                        
+                        </viz.data:FlattenedDataset>               
+
+                </viz:dataset>
+
+                <viz:feeds>
+                    <!-- MeasureDefinition or DimensionDefinition 둘 다 axisfeed의 values와 이름이 일치해야 한다. id는 겹치지 않게 ~~Feed2로 지정 -->
+                    <viz.feeds:FeedItem id = 'categoryAxisFeed2'
+                                        uid = "categoryAxis"
+                                        type = "Dimension"
+                                        values = "Player" />
+                    <!-- MeasureDefinition or DimensionDefinition 둘 다 axisfeed의 values와 이름이 일치해야 한다. id는 겹치지 않게 ~~Feed2로 지정 -->
+                    <viz.feeds:FeedItem id = 'valueAxisFeed2'
+                                        uid = "valueAxis"
+                                        type = "Measure"
+                                        values = "Assist" />
+                </viz:feeds>
+
+            </viz:VizFrame>
+
+        </m:HBox>
+
+
+
+        <m:Panel    class = "sapUiSmallMarginBottom"
+                    width = "20rem">
+            <m:VBox class = "sapUiSmallMargin" width = "12rem">
+        
+                <!-- 타이틀 표시 -->
+                <m:Title text = "오후 5번 문제" class = "sapUiTinyMarginBottom" />
+
+                <!-- m:Input - 계산기 결과 및 입력값을 보여주는 창(읽기 전용) -->
+                <m:Input value = "{???}" editable = "false" class = "sapUiSmallMarginBottom" />
+
+                <!-- 1행: 7, 8, 9, / -->
+                <m:HBox class="sapUiTinyMarginBottom">
+                    <!-- 각 버튼을 누르면 onPress 함수가 작동되도록 함 -->
+                    <m:Button text = "7" press = "onPress" width = "3rem" />
+                    <m:Button text = "8" press = "onPress" width = "3rem" />
+                    <m:Button text = "9" press = "onPress" width = "3rem" />
+                    <m:Button text = "/" press = "onPress" width = "3rem" type = "Accept" />            <!-- Accept 연두색 -->
+                </m:HBox>
+
+                <!-- 2행: 4, 5, 6, x -->
+                <m:HBox class="sapUiTinyMarginBottom">
+                    <!-- 각 버튼을 누르면 onPress 함수가 작동되도록 함 -->
+                    <m:Button text = "4" press = "onPress" width = "3rem" />
+                    <m:Button text = "5" press = "onPress" width = "3rem" />
+                    <m:Button text = "6" press = "onPress" width = "3rem" />
+                    <m:Button text = "x" press = "onPress" width = "3rem" type = "Attention" />         <!-- Attention 노란색 -->
+                </m:HBox>
+
+                <!-- 3행: 1, 2, 3, - -->
+                <m:HBox class="sapUiTinyMarginBottom">
+                    <!-- 각 버튼을 누르면 onPress 함수가 작동되도록 함 -->
+                    <m:Button text = "1" press = "onPress" width = "3rem" />
+                    <m:Button text = "2" press = "onPress" width = "3rem" />
+                    <m:Button text = "3" press = "onPress" width = "3rem" />
+                    <m:Button text = "-" press = "onPress" width = "3rem" type = "Emphasized" />        <!-- Emphasized 파란색 -->
+                </m:HBox>
+
+                <!-- 4행: =, clr, 0, + -->
+                <m:HBox class="sapUiTinyMarginBottom">
+                    <!-- 각 버튼을 누르면 onPress 함수가 작동되도록 함, 단 "="은 onEqual로 따로 만들어 결과가 나오도록 함 -->
+                    <m:Button text = "=" press = "onEqual" width = "3rem" type = "Unstyled" />          <!-- Unstyled 회색 -->
+                    <m:Button text = "CLR" press = "onPress" width = "3rem" type = "Unstyled" />        <!-- Unstyled 회색 -->
+                    <m:Button text = "0" press = "onPress" width = "3rem" />
+                    <m:Button text = "+" press = "onPress" width = "3rem" type = "Accept" />            <!-- Accept 연두색 -->
+                </m:HBox>
+
+            </m:VBox>
+        </m:Panel>
+
+
+    
+    </m:Page>
+
+</mvc:View>

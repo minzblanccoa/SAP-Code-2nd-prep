@@ -39,7 +39,7 @@
                 <VBox>
                     <Input  id = "fruit"
                             submit = "onResult"
-                            width = "3rem"/>
+                            width = "3rem" />
 
                     <Text id = "fResult" width = "3rem" textAlign="Center" />
                 </VBox>

@@ -16,7 +16,7 @@
             class="sapUiContentPadding">
 
            <t:Table rows = "{/airSet}"
-                    selectionMode="Single"
+                    selectionMode="None"
                     paste="onPaste"
                     ariaLabelledBy="title"
                     visibleRowCount = "5">
@@ -28,32 +28,32 @@
                 </t:extension>
 
                 <t:columns>
-                    <t:Column width="5rem" hAlign="Center">
+                    <t:Column width="5rem" hAlign="Center">                             <!-- 1열 -->
                         <Label text = "Airline" />
                             <t:template>
                                 <Text text = "{Carrid}" />
                             </t:template>
                     </t:Column>
 
-                    <t:Column width="20rem" hAlign="Left">
+                    <t:Column width="20rem" hAlign="Left">                              <!-- 2열 -->
                         <Label text = "Airline name" />
                             <t:template>
                                 <Text text = "{Carrname}" />
                             </t:template>
                     </t:Column>
                 
-                    <t:Column width="20rem" hAlign="Right">
+                    <t:Column width="20rem" hAlign="Right">                             <!-- 3열 -->
                         <Label text = "Air Fair" />
                             <t:template>
-                                <Text text="{
-                                    parts: [{path:'Price'},{path: 'Curkey'}],
-                                    type: 'sap.ui.model.type.Currency',
-                                    formatOptions: {showMeasure:true}
-                                }" wrapping="false"/>
+                                <Text   text="{
+                                        parts: [{path:'Price'},{path: 'Curkey'}],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {showMeasure:true}
+                                        }" wrapping="false"/>
                             </t:template>
                     </t:Column>
                 
-                    <t:Column width="5rem" hAlign="Center">
+                    <t:Column width="5rem" hAlign="Center">                             <!-- 4열 -->
                         <Label text = "Currency" />
                             <t:template>
                                 <Text text = "{Curkey}" />
@@ -68,7 +68,10 @@
         <Panel headerText="Hit rate chart by team" class = "sapUiResponsiveMargin">
         <!-- 패널에서 먼저 width랑 height 주지 마. 다 완성하고 주자. -->
 
-            <viz:VizFrame id = "idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType="line" vizProperties="{ title: {text : 'Team hit rate', visible : true} }">
+            <viz:VizFrame   id = "idVizFrame"
+                            uiConfig="{applicationSet:'fiori'}"
+                            vizType="line"
+                            vizProperties="{ title: {text : 'Team hit rate', visible : true} }">
 
                 <viz:dataset>
                 
@@ -87,15 +90,14 @@
                 </viz:dataset>
 
                 <viz:feeds>
+                    <viz.feeds:FeedItem id = 'categoryAxisFeed'
+                                        uid = "categoryAxis"
+                                        type = "Dimension"
+                                        values = "Team" />
                     <viz.feeds:FeedItem id = 'valueAxisFeed'
                                         uid = "valueAxis"
                                         type = "Measure"
                                         values = "Hitting" />
-
-                    <viz.feeds:FeedItem id = 'categoryAxisFeed'
-                                        uid = "categoryAxis"
-                                        type = "Dimension"
-                                        values = "Team"/>
                 </viz:feeds>
             
             </viz:VizFrame>
